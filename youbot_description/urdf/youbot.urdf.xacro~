@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!-- Refactored by Arn-O -->
+<robot name="youbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <property name="M_PI" value="3.1415926535897931" />
+
+  <!-- Casters -->
+  <property name="cal_caster_fl" value="0.0" />
+  <property name="cal_caster_fr" value="0.0" />
+  <property name="cal_caster_bl" value="0.0" />
+  <property name="cal_caster_br" value="0.0" />
+
+  <xacro:include filename="$(find youbot_description)/urdf/specs.urdf.xacro" />
+
+    <!-- ### links ### -->
+    <!-- base -->
+    <link name="base_footprint">
+      <inertial>
+        <mass value="0.001" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry> 
+      </visual>
+    </link>
+ 
+   <link name="base_link">
+      <inertial>
+        <mass value="${base_mass}" />      
+        <inertia ixx="1.000" ixy="0.000" ixz="0.000" iyy="1.000" iyz="0.000" izz="1.000" />
+      </inertial>
+
+      <visual> 
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_base/base_frame.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+    <!-- wheels -->
+    <!-- front left wheel -->
+    <link name="wheel_link_fl">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- front right wheel -->
+    <link name="wheel_link_fr">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- back left wheel -->
+    <link name="wheel_link_bl">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- back right wheel -->
+    <link name="wheel_link_br">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="arm_base_link">
+      <inertial>
+        <mass value="${arm_base_mass}" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_arm/arm_base_frame.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+    <link name="arm_1_link">
+      <inertial>
+        <mass value="${arm_1_link_mass}" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_arm/arm_joint_1.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+    <link name="arm_2_link">
+      <inertial>
+        <mass value="${arm_2_link_mass}" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_arm/arm_joint_2.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+    <!-- ### joints ### -->
+  <!-- base -->
+    <joint name="base_joint" type="fixed">
+      <origin xyz="${base_pose_x} ${base_pose_y} ${base_pose_z}" rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+    </joint>
+
+    <joint name="wheel_fl_joint" type="fixed">
+      <origin xyz="${wheel_fl_pose_x} ${wheel_fl_pose_y} ${wheel_fl_pose_z}" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="wheel_link_fl" />
+    </joint>
+
+    <joint name="wheel_fr_joint" type="fixed">
+      <origin xyz="${wheel_fr_pose_x} ${wheel_fr_pose_y} ${wheel_fr_pose_z}" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="wheel_link_fr" />
+    </joint>
+
+    <joint name="wheel_bl_joint" type="fixed">
+      <origin xyz="${wheel_bl_pose_x} ${wheel_bl_pose_y} ${wheel_bl_pose_z}" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="wheel_link_bl" />
+    </joint>
+
+    <joint name="wheel_br_joint" type="fixed">
+      <origin xyz="${wheel_br_pose_x} ${wheel_br_pose_y} ${wheel_br_pose_z}" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="wheel_link_br" />
+    </joint>
+
+    <joint name="arm_base_joint" type="fixed">
+      <origin xyz="${arm_base_pose_x} ${arm_base_pose_y} ${arm_base_pose_z}" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="arm_base_link" />
+    </joint>    		
+
+    <joint name="arm_1_joint" type="revolute">
+      <origin xyz="${arm_1_link_pose_x} ${arm_1_link_pose_y} ${arm_1_link_pose_z}"
+              rpy="${arm_1_link_orient_r} ${arm_1_link_orient_p} ${arm_1_link_orient_y}" />
+      <parent link="arm_base_link"/>
+      <child link="arm_1_link" />
+      <limit lower="-2.0" upper="2.0" effort="1000" velocity="3" />
+    </joint> 
+
+    <joint name="arm_2_joint" type="revolute">
+      <origin xyz="${arm_2_link_pose_x} ${arm_2_link_pose_y} ${arm_2_link_pose_z}"
+              rpy="${arm_2_link_orient_r} ${arm_2_link_orient_p} ${arm_2_link_orient_y}" />
+      <parent link="arm_1_link"/>
+      <child link="arm_2_link" />
+      <limit lower="-2.0" upper="2.0" effort="1000" velocity="3" />
+    </joint> 
+
+    <!-- extensions -->
+    <!-- uncomment for adding the controllers -->
+    <!-- xacro:youbot_arm_transmission /-->
+
+  <!-- youbot base -->
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_base/base.urdf.xacro" />
+
+  <!-- youbot plate -->
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_plate/plate.urdf.xacro" /> 
+
+  <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
+  <xacro:include filename="$(find youbot_description)/gazebo/gazebo.urdf.xacro" />
+						     
+  <xacro:youbot_base />
+  <xacro:youbot_plate />
+
+</robot>
