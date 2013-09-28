@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!-- Refactored by Arn-O -->
+<robot name="youbot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+  
+  <!-- base -->
+  <xacro:property name="base_mass" value="19.803" />
+  <xacro:property name="base_pose_x" value="0.000" />
+  <xacro:property name="base_pose_y" value="0.000" />
+  <xacro:property name="base_pose_z" value="0.084" />
+
+  <!-- wheels -->
+  <xacro:property name="wheel_mass" value="1.400" />
+  <xacro:property name="wheel_radius" value="0.050" />
+
+  <xacro:property name="wheel_fl_pose_x" value="0.228" />
+  <xacro:property name="wheel_fl_pose_y" value="0.158" />
+  <xacro:property name="wheel_fl_pose_z" value="-0.034" />
+
+  <xacro:property name="wheel_fr_pose_x" value="0.228" />
+  <xacro:property name="wheel_fr_pose_y" value="-0.158" />
+  <xacro:property name="wheel_fr_pose_z" value="-0.034" />
+
+  <xacro:property name="wheel_bl_pose_x" value="-0.228" />
+  <xacro:property name="wheel_bl_pose_y" value="0.158" />
+  <xacro:property name="wheel_bl_pose_z" value="-0.034" />
+
+  <xacro:property name="wheel_br_pose_x" value="-0.228" />
+  <xacro:property name="wheel_br_pose_y" value="-0.158" />
+  <xacro:property name="wheel_br_pose_z" value="-0.034" />
+
+  <!-- wheels -->
+  <xacro:property name="plate_mass" value="2.397" />
+
+  <xacro:property name="plate_pose_x" value="-0.159" />
+  <xacro:property name="plate_pose_y" value="0.000" />
+  <xacro:property name="plate_pose_z" value="0.046" />
+
+  <!-- arm -->
+  <xacro:property name="arm_base_mass" value="0.961" />
+
+  <xacro:property name="arm_base_pose_x" value="0.143" />
+  <xacro:property name="arm_base_pose_y" value="0.000" />
+  <xacro:property name="arm_base_pose_z" value="0.046" />
+
+  <xacro:property name="arm_1_link_mass" value="1.390" />
+
+  <xacro:property name="arm_1_link_pose_x" value="0.024" />
+  <xacro:property name="arm_1_link_pose_y" value="0.000" />
+  <xacro:property name="arm_1_link_pose_z" value="0.115" />
+
+  <xacro:property name="arm_1_link_orient_y" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_1_link_orient_p" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_1_link_orient_r" value="${M_PI * (180 / 180)}" />
+
+  <xacro:property name="arm_2_link_mass" value="1.318" />
+
+  <xacro:property name="arm_2_link_pose_x" value="0.033" />
+  <xacro:property name="arm_2_link_pose_y" value="0.000" />
+  <xacro:property name="arm_2_link_pose_z" value="0.000" />
+
+  <xacro:property name="arm_2_link_orient_y" value="${M_PI * (-90 / 180)}" />
+  <xacro:property name="arm_2_link_orient_p" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_2_link_orient_r" value="${M_PI * (90 / 180)}" />
+
+</robot>

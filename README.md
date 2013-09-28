@@ -41,7 +41,7 @@ roslaunch youbot_gazebo youbot_base_only.launch
 It may be useful sometimes to check the generated URDF file. Use the following command to dump this file:
 
 ```
-rosrun xacro xacro.py `rospack find youbot_description`/robots/youbot.urdf.xacro -o ~/Documents/youbot.urdf
+rosrun xacro xacro.py `rospack find youbot_description`/urdf/youbot.urdf.xacro -o ~/Documents/youbot.urdf
 ```
 
 You can them check the integrety of this file using the urdfdom package:

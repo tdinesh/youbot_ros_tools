@@ -1,7 +1,7 @@
 <launch>
   <!-- setting param to be used later by the rviz config file -->
   <param name="robot_description"
-    command="$(find xacro)/xacro.py '$(find youbot_description)/urdf/youbot.urdf.xacro'" />
+    command="$(find xacro)/xacro.py '$(find youbot_description)/robots/youbot.urdf.xacro'" />
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
