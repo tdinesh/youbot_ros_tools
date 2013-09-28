@@ -1,26 +1,34 @@
 youbot_ros_tools
 ================
 
-Use the hydro-revel for more stable and tested code.
+Use the hydro-devel branch of [Boanerghes][2] for more stable and tested code.
 
 ## Goals
 
 + use the kinematics and dynamics specs from [youbot-store][1].
 + use the last meshes also
 + fix the "joint issue" (joints are moving too slowly)
-+ improve readability by keeping the official parameters in parameter files
++ improve readability by keeping the official parameters in a parameter file
+
+So basically this repo a massive refactor of the previous youBot repos.
 
 ## Quick start
 
-Compatible with ROS Hydro and Gazebo 1.9.
+This repo is compatible with ROS Hydro and Gazebo 1.9.
 
-### base only
+### rviz
+
+An rviz launch is available for studying the kynematics of the robot without the physics engine.
 
 Launch display in rviz:
 
 ```
-roslaunch youbot_description youbot_base_only.launch
+roslaunch youbot_description youbot_rviz.launch
 ```
+
+### Gazebo
+
+This simulation currently contents the robot only.
 
 Launch display in Gazebo:
 
@@ -29,3 +37,4 @@ roslaunch youbot_gazebo youbot_base_only.launch
 ```
 
 [1]: http://www.youbot-store.com/youbot-developers/software/simulation/kuka-youbot-kinematics-dynamics-and-3d-model
+[2]: https://github.com/Boanerghes/youbot_ros_tools
