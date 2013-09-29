@@ -3,7 +3,12 @@
 <robot name="youbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:property name="M_PI" value="3.1415926535897931" /> 
+
+  <!-- Import the spec provided by youBot store -->
   <xacro:include filename="$(find youbot_description)/urdf/spec.urdf.xacro" />
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find youbot_description)/urdf/youbot.gazebo" />
 
   <xacro:macro name="youbot_description" >
     <!-- ### base ### -->
@@ -194,6 +199,7 @@
       <child link="arm_base_link" />
     </joint>   
 
+  <!-- TODO: replace the next 5 code blocks by macro -->
   <!-- ### arm_1 ### -->
   <!-- arm_1 link -->
     <link name="arm_1_link">
@@ -219,6 +225,15 @@
       <limit lower="${arm_1_limit_min}" upper="${arm_1_limit_max}"
              effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint> 
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="arm_1_joint"/>
+    <actuator name="motor1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <!-- ### arm_2 ### -->
   <!-- arm_2 link -->

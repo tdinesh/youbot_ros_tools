@@ -66,6 +66,7 @@
   <xacro:property name="arm_2_link_pose_y" value="0.000" />
   <xacro:property name="arm_2_link_pose_z" value="0.000" />
 
+  <!-- slightly different from the doc due to different conventions -->
   <xacro:property name="arm_2_link_orient_y" value="${M_PI * (0 / 180)}" />
   <xacro:property name="arm_2_link_orient_p" value="${M_PI * (90 / 180)}" />
   <xacro:property name="arm_2_link_orient_r" value="${M_PI * (90 / 180)}" />

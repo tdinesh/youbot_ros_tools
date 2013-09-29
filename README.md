@@ -33,8 +33,17 @@ This simulation currently contents the robot only.
 Launch display in Gazebo:
 
 ```
-roslaunch youbot_gazebo youbot_base_only.launch
+roslaunch youbot_gazebo youbot.launch
 ```
+
+### Controllers
+
+This step will generate controllers topic to control the robot.
+
+```
+roslaunch youbot_control youbot_control.launch
+```
+
 
 ### Dump the URDF file
 
