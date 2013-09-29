@@ -10,8 +10,8 @@
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot.gazebo" />
 
-  <xacro:macro name="youbot_description" >
-    <!-- ### base ### -->
+  <xacro:macro name="base" >
+    <!-- #### base #### -->
     <!-- footprint link -->
     <link name="base_footprint">
       <inertial>
@@ -47,114 +47,6 @@
       <child link="base_link" />
     </joint>
 
-    <!-- ### wheels ### -->
-    <!-- wheels -->
-    <!-- TODO: replace the following 4 code blocks by macros -->
-    <!-- front left wheel -->
-    <link name="wheel_link_fl">
-      <inertial>
-        <mass value="${wheel_mass}" />
-        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
-      </inertial>
-
-      <visual>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </visual>
-
-      <collision>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </collision>
-    </link>
-
-    <!-- front right wheel -->
-    <link name="wheel_link_fr">
-      <inertial>
-        <mass value="${wheel_mass}" />
-        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
-      </inertial>
-
-      <visual>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </visual>
-
-      <collision>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </collision>
-    </link>
-
-    <!-- back left wheel -->
-    <link name="wheel_link_bl">
-      <inertial>
-        <mass value="${wheel_mass}" />
-        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
-      </inertial>
-
-      <visual>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </visual>
-
-      <collision>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </collision>
-    </link>
-
-    <!-- back right wheel -->
-    <link name="wheel_link_br">
-      <inertial>
-        <mass value="${wheel_mass}" />
-        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
-      </inertial>
-
-      <visual>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </visual>
-
-      <collision>
-        <geometry>
-          <sphere radius="${wheel_radius}" />
-        </geometry>
-      </collision>
-    </link>
-
-  <!-- wheels joints -->
-    <joint name="wheel_fl_joint" type="fixed">
-      <origin xyz="${wheel_fl_pose_x} ${wheel_fl_pose_y} ${wheel_fl_pose_z}" rpy="0 0 0" />
-      <parent link="base_link"/>
-      <child link="wheel_link_fl" />
-    </joint>
-
-    <joint name="wheel_fr_joint" type="fixed">
-      <origin xyz="${wheel_fr_pose_x} ${wheel_fr_pose_y} ${wheel_fr_pose_z}" rpy="0 0 0" />
-      <parent link="base_link"/>
-      <child link="wheel_link_fr" />
-    </joint>
-
-    <joint name="wheel_bl_joint" type="fixed">
-      <origin xyz="${wheel_bl_pose_x} ${wheel_bl_pose_y} ${wheel_bl_pose_z}" rpy="0 0 0" />
-      <parent link="base_link"/>
-      <child link="wheel_link_bl" />
-    </joint>
-
-    <joint name="wheel_br_joint" type="fixed">
-      <origin xyz="${wheel_br_pose_x} ${wheel_br_pose_y} ${wheel_br_pose_z}" rpy="0 0 0" />
-      <parent link="base_link"/>
-      <child link="wheel_link_br" />
-    </joint> 	
-
   <!-- #### plate #### -->
   <!-- plate links -->
   <link name="plate_link">
@@ -177,8 +69,40 @@
       <child link="plate_link" />
     </joint>  
 
-  <!-- ### arm_base ### -->
-  <!-- arm_base link -->
+  </xacro:macro> 
+
+
+  <xacro:macro name="wheels" params="position x y">
+    <!-- ### wheels ### -->
+    <link name="wheel_${position}_link">
+      <inertial>
+        <mass value="${wheel_mass}" />
+        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <sphere radius="${wheel_radius}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="wheel_${position}_joint" type="fixed">
+      <origin xyz="${wheel_pose_x * x} ${wheel_pose_y * y} ${wheel_pose_z}" />
+      <parent link="base_link"/>
+      <child link="wheel_${position}_link" />
+    </joint>
+
+  </xacro:macro>
+
+  <xacro:macro name="arm_base" >
+  <!-- #### arm_base #### -->
     <link name="arm_base_link">
       <inertial>
         <mass value="${arm_base_mass}" />
@@ -192,13 +116,16 @@
       </visual>
     </link>
 
-  <!-- arm_base joint -->
     <joint name="arm_base_joint" type="fixed">
       <origin xyz="${arm_base_pose_x} ${arm_base_pose_y} ${arm_base_pose_z}" rpy="0 0 0" />
       <parent link="base_link"/>
       <child link="arm_base_link" />
-    </joint>   
+    </joint> 
 
+  </xacro:macro>
+
+  <xacro:macro name="arm" >
+  
   <!-- TODO: replace the next 5 code blocks by macro -->
   <!-- ### arm_1 ### -->
   <!-- arm_1 link -->
@@ -261,6 +188,15 @@
              effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>
 
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="arm_2_joint"/>
+    <actuator name="motor2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
   <!-- ### arm_3 ### -->
   <!-- arm_3 link -->
     <link name="arm_3_link">
@@ -286,6 +222,15 @@
       <limit lower="${arm_3_limit_min}" upper="${arm_3_limit_max}"
              effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>	
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="arm_3_joint"/>
+    <actuator name="motor3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <!-- ### arm_4 ### -->
   <!-- arm_4 link -->
@@ -313,6 +258,15 @@
              effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>
 
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="arm_4_joint"/>
+    <actuator name="motor4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
   <!-- ### arm_5 ### -->
   <!-- arm_5 link -->
     <link name="arm_5_link">
@@ -339,6 +293,9 @@
              effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>	
 
+  </xacro:macro> 
+
+  <xacro:macro name="gripper" >
   <!-- ### gripper_base ### -->
   <!-- gripper_base link -->
     <link name="gripper_base_link">
@@ -408,14 +365,21 @@
       <origin xyz="${finger_right_link_pose_x} ${finger_right_link_pose_y}
                                                        ${finger_right_link_pose_z}" />
       <parent link="gripper_base_link"/>
-      <child link="finger_left_link" />
-      <axis xyz="${finger_left_axis}" />
-      <limit lower="${finger_left_limit_min}" upper="${finger_left_limit_max}"
+      <child link="finger_right_link" />
+      <axis xyz="${finger_right_axis}" />
+      <limit lower="${finger_right_limit_min}" upper="${finger_right_limit_max}"
              effort="${finger_joint_effort}" velocity="${finger_joint_velocity}" />
     </joint>
 
   </xacro:macro> 
 
-  <xacro:youbot_description />
+  <xacro:base />
+  <xacro:wheels position="fl" x="1" y="-1"/>
+  <xacro:wheels position="fr" x="1" y="1"/>
+  <xacro:wheels position="bl" x="-1" y="-1"/>
+  <xacro:wheels position="br" x="-1" y="1"/>
+  <xacro:arm_base />
+  <xacro:arm />
+  <xacro:gripper />
 
 </robot>

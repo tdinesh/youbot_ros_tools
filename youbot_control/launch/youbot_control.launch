@@ -5,7 +5,11 @@
   <node name="controller_spawner" pkg="controller_manager"
         type="spawner" respawn="false" output="screen" ns="/youbot"
         args="--namespace=/youbot
-              arm_1_joint_position_controller" />
+              arm_1_joint_position_controller
+              arm_2_joint_position_controller
+              arm_3_joint_position_controller
+              arm_4_joint_position_controller
+              arm_5_joint_position_controller " />
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find youbot_control)/config/youbot_control.yaml" command="load"/>

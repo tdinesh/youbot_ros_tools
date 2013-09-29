@@ -12,21 +12,9 @@
   <xacro:property name="wheel_mass" value="1.400" />
   <xacro:property name="wheel_radius" value="0.050" />
 
-  <xacro:property name="wheel_fl_pose_x" value="0.228" />
-  <xacro:property name="wheel_fl_pose_y" value="0.158" />
-  <xacro:property name="wheel_fl_pose_z" value="-0.034" />
-
-  <xacro:property name="wheel_fr_pose_x" value="0.228" />
-  <xacro:property name="wheel_fr_pose_y" value="-0.158" />
-  <xacro:property name="wheel_fr_pose_z" value="-0.034" />
-
-  <xacro:property name="wheel_bl_pose_x" value="-0.228" />
-  <xacro:property name="wheel_bl_pose_y" value="0.158" />
-  <xacro:property name="wheel_bl_pose_z" value="-0.034" />
-
-  <xacro:property name="wheel_br_pose_x" value="-0.228" />
-  <xacro:property name="wheel_br_pose_y" value="-0.158" />
-  <xacro:property name="wheel_br_pose_z" value="-0.034" />
+  <xacro:property name="wheel_pose_x" value="0.228" />
+  <xacro:property name="wheel_pose_y" value="0.158" />
+  <xacro:property name="wheel_pose_z" value="-0.034" />
 
   <!-- plate -->
   <xacro:property name="plate_pose_x" value="-0.159" />
@@ -155,5 +143,18 @@
   <xacro:property name="finger_left_limit_max" value="0.013" />
 
   <xacro:property name="finger_left_link_mass" value="0.010" />
+
+  <!-- finger_right -->
+  <xacro:property name="finger_right_link_pose_x" value="0.000" />
+  <xacro:property name="finger_right_link_pose_y" value="-0.008" />
+  <xacro:property name="finger_right_link_pose_z" value="0.000" />
+
+  <xacro:property name="finger_right_axis" value="0 -1 0" />
+
+  <!-- TODO: the max value should be a parameter of the robot -->
+  <xacro:property name="finger_right_limit_min" value="0" />
+  <xacro:property name="finger_right_limit_max" value="0.013" />
+
+  <xacro:property name="finger_right_link_mass" value="0.010" />
 
 </robot>

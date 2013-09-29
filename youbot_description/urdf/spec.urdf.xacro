@@ -12,21 +12,9 @@
   <xacro:property name="wheel_mass" value="1.400" />
   <xacro:property name="wheel_radius" value="0.050" />
 
-  <xacro:property name="wheel_fl_pose_x" value="0.228" />
-  <xacro:property name="wheel_fl_pose_y" value="0.158" />
-  <xacro:property name="wheel_fl_pose_z" value="-0.034" />
-
-  <xacro:property name="wheel_fr_pose_x" value="0.228" />
-  <xacro:property name="wheel_fr_pose_y" value="-0.158" />
-  <xacro:property name="wheel_fr_pose_z" value="-0.034" />
-
-  <xacro:property name="wheel_bl_pose_x" value="-0.228" />
-  <xacro:property name="wheel_bl_pose_y" value="0.158" />
-  <xacro:property name="wheel_bl_pose_z" value="-0.034" />
-
-  <xacro:property name="wheel_br_pose_x" value="-0.228" />
-  <xacro:property name="wheel_br_pose_y" value="-0.158" />
-  <xacro:property name="wheel_br_pose_z" value="-0.034" />
+  <xacro:property name="wheel_pose_x" value="0.228" />
+  <xacro:property name="wheel_pose_y" value="0.158" />
+  <xacro:property name="wheel_pose_z" value="-0.034" />
 
   <!-- plate -->
   <xacro:property name="plate_pose_x" value="-0.159" />
