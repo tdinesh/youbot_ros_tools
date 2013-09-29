@@ -28,22 +28,24 @@
   <xacro:property name="wheel_br_pose_y" value="-0.158" />
   <xacro:property name="wheel_br_pose_z" value="-0.034" />
 
-  <!-- wheels -->
+  <!-- plate -->
   <xacro:property name="plate_mass" value="2.397" />
 
   <xacro:property name="plate_pose_x" value="-0.159" />
   <xacro:property name="plate_pose_y" value="0.000" />
   <xacro:property name="plate_pose_z" value="0.046" />
 
-  <!-- arm -->
+  <!-- arm base -->
   <xacro:property name="arm_base_mass" value="0.961" />
 
   <xacro:property name="arm_base_pose_x" value="0.143" />
   <xacro:property name="arm_base_pose_y" value="0.000" />
   <xacro:property name="arm_base_pose_z" value="0.046" />
 
-  <xacro:property name="arm_1_link_mass" value="1.390" />
+  <xacro:property name="arm_joint_effort" value="1000" />
+  <xacro:property name="arm_joint_velocity" value="${M_PI * (90 / 180)}" />
 
+  <!-- arm_1 -->
   <xacro:property name="arm_1_link_pose_x" value="0.024" />
   <xacro:property name="arm_1_link_pose_y" value="0.000" />
   <xacro:property name="arm_1_link_pose_z" value="0.115" />
@@ -52,14 +54,76 @@
   <xacro:property name="arm_1_link_orient_p" value="${M_PI * (0 / 180)}" />
   <xacro:property name="arm_1_link_orient_r" value="${M_PI * (180 / 180)}" />
 
-  <xacro:property name="arm_2_link_mass" value="1.318" />
+  <xacro:property name="arm_1_axis" value="0 0 1" />
 
+  <xacro:property name="arm_1_limit_min" value="${M_PI * (-169 / 180) }" />
+  <xacro:property name="arm_1_limit_max" value="${M_PI * (169 / 180) }" />
+
+  <xacro:property name="arm_1_link_mass" value="1.390" />
+
+  <!-- arm_2 -->
   <xacro:property name="arm_2_link_pose_x" value="0.033" />
   <xacro:property name="arm_2_link_pose_y" value="0.000" />
   <xacro:property name="arm_2_link_pose_z" value="0.000" />
 
-  <xacro:property name="arm_2_link_orient_y" value="${M_PI * (-90 / 180)}" />
-  <xacro:property name="arm_2_link_orient_p" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_2_link_orient_y" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_2_link_orient_p" value="${M_PI * (90 / 180)}" />
   <xacro:property name="arm_2_link_orient_r" value="${M_PI * (90 / 180)}" />
+
+  <xacro:property name="arm_2_axis" value="0 0 1" />
+
+  <xacro:property name="arm_2_limit_min" value="${M_PI * (-65 / 180) }" />
+  <xacro:property name="arm_2_limit_max" value="${M_PI * (90 / 180) }" />
+
+  <xacro:property name="arm_2_link_mass" value="1.318" />
+
+  <!-- arm_3 -->
+  <xacro:property name="arm_3_link_pose_x" value="0.155" />
+  <xacro:property name="arm_3_link_pose_y" value="0.000" />
+  <xacro:property name="arm_3_link_pose_z" value="0.000" />
+
+  <xacro:property name="arm_3_link_orient_y" value="${M_PI * (-90 / 180)}" />
+  <xacro:property name="arm_3_link_orient_p" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_3_link_orient_r" value="${M_PI * (0 / 180)}" />
+
+  <xacro:property name="arm_3_axis" value="0 0 1" />
+
+  <xacro:property name="arm_3_limit_min" value="${M_PI * (-151 / 180) }" />
+  <xacro:property name="arm_3_limit_max" value="${M_PI * (146 / 180) }" />
+
+  <xacro:property name="arm_3_link_mass" value="0.821" />
+
+  <!-- arm_4 -->
+  <xacro:property name="arm_4_link_pose_x" value="0.000" />
+  <xacro:property name="arm_4_link_pose_y" value="0.135" />
+  <xacro:property name="arm_4_link_pose_z" value="0.000" />
+
+  <xacro:property name="arm_4_link_orient_y" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_4_link_orient_p" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_4_link_orient_r" value="${M_PI * (0 / 180)}" />
+
+  <xacro:property name="arm_4_axis" value="0 0 1" />
+
+  <xacro:property name="arm_4_limit_min" value="${M_PI * (-102.5 / 180) }" />
+  <xacro:property name="arm_4_limit_max" value="${M_PI * (102.5 / 180) }" />
+
+  <xacro:property name="arm_4_link_mass" value="0.769" />
+
+  <!-- arm_5 -->
+  <xacro:property name="arm_5_link_pose_x" value="0.000" />
+  <xacro:property name="arm_5_link_pose_y" value="0.114" />
+  <xacro:property name="arm_5_link_pose_z" value="0.000" />
+
+  <xacro:property name="arm_5_link_orient_y" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_5_link_orient_p" value="${M_PI * (0 / 180)}" />
+  <xacro:property name="arm_5_link_orient_r" value="${M_PI * (-90 / 180)}" />
+
+  <xacro:property name="arm_5_axis" value="0 0 -1" />
+
+  <xacro:property name="arm_5_limit_min" value="${M_PI * (-165 / 180) }" />
+  <xacro:property name="arm_5_limit_max" value="${M_PI * (165 / 180) }" />
+
+  <xacro:property name="arm_5_link_mass" value="0.687" />
+
 
 </robot>
