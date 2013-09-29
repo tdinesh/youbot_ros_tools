@@ -339,12 +339,83 @@
              effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>	
 
+  <!-- ### gripper_base ### -->
+  <!-- gripper_base link -->
+    <link name="gripper_base_link">
+      <inertial>
+        <mass value="${gripper_base_link_mass}" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/gripper_base_frame.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+  <!-- gripper_base joint -->
+    <joint name="gripper_base_joint" type="fixed">
+      <origin xyz="${gripper_base_link_pose_x} ${gripper_base_link_pose_y} ${gripper_base_link_pose_z}"
+              rpy="${gripper_base_link_orient_r} ${gripper_base_link_orient_p}
+                                            ${gripper_base_link_orient_y}" />
+      <parent link="arm_5_link"/>
+      <child link="gripper_base_link" />
+    </joint>
+
+  <!-- ### finger_left ### -->
+  <!-- finger_left link -->
+    <link name="finger_left_link">
+      <inertial>
+        <mass value="${finger_left_link_mass}" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/gripper_left_finger.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+  <!-- finger_left joint -->
+    <joint name="finger_left_joint" type="prismatic">
+      <origin xyz="${finger_left_link_pose_x} ${finger_left_link_pose_y} ${finger_left_link_pose_z}" />
+      <parent link="gripper_base_link"/>
+      <child link="finger_left_link" />
+      <axis xyz="${finger_left_axis}" />
+      <limit lower="${finger_left_limit_min}" upper="${finger_left_limit_max}"
+             effort="${finger_joint_effort}" velocity="${finger_joint_velocity}" />
+    </joint>
+	
+  <!-- ### finger_right ### -->
+  <!-- finger_right link -->
+    <link name="finger_right_link">
+      <inertial>
+        <mass value="${finger_right_link_mass}" />
+        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+      </inertial>
+
+      <visual>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/gripper_right_finger.dae"/>
+        </geometry> 
+      </visual>
+    </link>
+
+  <!-- finger_right joint -->
+    <joint name="finger_right_joint" type="prismatic">
+      <origin xyz="${finger_right_link_pose_x} ${finger_right_link_pose_y}
+                                                       ${finger_right_link_pose_z}" />
+      <parent link="gripper_base_link"/>
+      <child link="finger_left_link" />
+      <axis xyz="${finger_left_axis}" />
+      <limit lower="${finger_left_limit_min}" upper="${finger_left_limit_max}"
+             effort="${finger_joint_effort}" velocity="${finger_joint_velocity}" />
+    </joint>
+
   </xacro:macro> 
 
   <xacro:youbot_description />
-
-    <!-- extensions -->
-    <!-- uncomment for adding the controllers -->
-    <!-- xacro:youbot_arm_transmission /-->
 
 </robot>
