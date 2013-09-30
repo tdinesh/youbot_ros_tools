@@ -19,3 +19,11 @@ youbot:
     type: effort_controllers/JointPositionController
     joint: arm_5_joint
     pid: {p: 100.0, d: 1.0}
+  finger_left_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: finger_left_joint
+    pid: {p: 100.0, d: 1.0}
+  finger_right_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: finger_right_joint
+    pid: {p: 100.0, d: 1.0}

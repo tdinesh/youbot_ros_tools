@@ -10,13 +10,14 @@
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot.gazebo" />
 
+  <!-- TODO: change inertia of the base links and the wheels -->
   <xacro:macro name="base" >
     <!-- #### base #### -->
     <!-- footprint link -->
     <link name="base_footprint">
       <inertial>
         <mass value="0.001" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <inertia ixx="0.000001" ixy="0.000" ixz="0.000" iyy="0.000001" iyz="0.000" izz="0.000001" />
       </inertial>
 
       <visual>
@@ -30,7 +31,7 @@
    <link name="base_link">
       <inertial>
         <mass value="${base_mass}" />      
-        <inertia ixx="1.000" ixy="0.000" ixz="0.000" iyy="1.000" iyz="0.000" izz="1.000" />
+        <inertia ixx="0.01" ixy="0.000" ixz="0.000" iyy="0.01" iyz="0.000" izz="0.01" />
       </inertial>
 
       <visual> 
@@ -42,7 +43,7 @@
 
   <!-- base joint -->
     <joint name="base_joint" type="fixed">
-      <origin xyz="${base_pose_x} ${base_pose_y} ${base_pose_z}" rpy="0 0 0" />
+      <origin xyz="${base_pose_x} ${base_pose_y} ${base_pose_z}" />
       <parent link="base_footprint"/>
       <child link="base_link" />
     </joint>
@@ -52,7 +53,7 @@
   <link name="plate_link">
     <inertial>
      <mass value="${plate_mass}"/>
-     <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+     <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.002" iyz="0" izz="0.002" />
     </inertial>
 			
     <visual>
@@ -64,7 +65,7 @@
 
   <!-- plate joint -->
     <joint name="plate_joint" type="fixed">
-      <origin xyz="${plate_pose_x} ${plate_pose_y} ${plate_pose_z}" rpy="0 0 0" />
+      <origin xyz="${plate_pose_x} ${plate_pose_y} ${plate_pose_z}" />
       <parent link="base_link"/>
       <child link="plate_link" />
     </joint>  
@@ -77,7 +78,7 @@
     <link name="wheel_${position}_link">
       <inertial>
         <mass value="${wheel_mass}" />
-        <inertia  ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <inertia  ixx="0.0014" ixy="0.000" ixz="0.000" iyy="0.0014" iyz="0.000" izz="0.0014" />
       </inertial>
 
       <visual>
@@ -132,7 +133,7 @@
     <link name="arm_1_link">
       <inertial>
         <mass value="${arm_1_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <xacro:arm_1_inertia />
       </inertial>
 
       <visual>
@@ -150,7 +151,7 @@
       <child link="arm_1_link" />
       <axis xyz="${arm_1_axis}" />
       <limit lower="${arm_1_limit_min}" upper="${arm_1_limit_max}"
-             effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
+             effort="${arm_1_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint> 
 
   <transmission name="tran1">
@@ -167,7 +168,7 @@
     <link name="arm_2_link">
       <inertial>
         <mass value="${arm_2_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <xacro:arm_2_inertia />
       </inertial>
 
       <visual>
@@ -185,7 +186,7 @@
       <child link="arm_2_link" />
       <axis xyz="${arm_2_axis}" />
       <limit lower="${arm_2_limit_min}" upper="${arm_2_limit_max}"
-             effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
+             effort="${arm_2_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>
 
   <transmission name="tran2">
@@ -202,7 +203,7 @@
     <link name="arm_3_link">
       <inertial>
         <mass value="${arm_3_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <xacro:arm_3_inertia />
       </inertial>
 
       <visual>
@@ -220,7 +221,7 @@
       <child link="arm_3_link" />
       <axis xyz="${arm_3_axis}" />
       <limit lower="${arm_3_limit_min}" upper="${arm_3_limit_max}"
-             effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
+             effort="${arm_3_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>	
 
   <transmission name="tran3">
@@ -237,7 +238,7 @@
     <link name="arm_4_link">
       <inertial>
         <mass value="${arm_4_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <xacro:arm_4_inertia />
       </inertial>
 
       <visual>
@@ -255,7 +256,7 @@
       <child link="arm_4_link" />
       <axis xyz="${arm_4_axis}" />
       <limit lower="${arm_4_limit_min}" upper="${arm_4_limit_max}"
-             effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
+             effort="${arm_4_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>
 
   <transmission name="tran4">
@@ -272,7 +273,7 @@
     <link name="arm_5_link">
       <inertial>
         <mass value="${arm_5_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <xacro:arm_5_inertia />
       </inertial>
 
       <visual>
@@ -290,7 +291,7 @@
       <child link="arm_5_link" />
       <axis xyz="${arm_5_axis}" />
       <limit lower="${arm_5_limit_min}" upper="${arm_5_limit_max}"
-             effort="${arm_joint_effort}" velocity="${arm_joint_velocity}" />
+             effort="${arm_5_joint_effort}" velocity="${arm_joint_velocity}" />
     </joint>
 
   <transmission name="tran5">
@@ -310,7 +311,7 @@
     <link name="gripper_base_link">
       <inertial>
         <mass value="${gripper_base_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <xacro:gripper_base_inertia />
       </inertial>
 
       <visual>
@@ -334,7 +335,7 @@
     <link name="finger_left_link">
       <inertial>
         <mass value="${finger_left_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <inertia ixx="0.00001" ixy="0.000" ixz="0.000" iyy="0.00001" iyz="0.00001" izz="0.00001" />
       </inertial>
 
       <visual>
@@ -353,13 +354,22 @@
       <limit lower="${finger_left_limit_min}" upper="${finger_left_limit_max}"
              effort="${finger_joint_effort}" velocity="${finger_joint_velocity}" />
     </joint>
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_left_joint"/>
+    <actuator name="motor6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 	
   <!-- ### finger_right ### -->
   <!-- finger_right link -->
     <link name="finger_right_link">
       <inertial>
         <mass value="${finger_right_link_mass}" />
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010" />
+        <inertia ixx="0.00001" ixy="0.000" ixz="0.000" iyy="0.00001" iyz="0.00001" izz="0.00001" />
       </inertial>
 
       <visual>
@@ -379,6 +389,15 @@
       <limit lower="${finger_right_limit_min}" upper="${finger_right_limit_max}"
              effort="${finger_joint_effort}" velocity="${finger_joint_velocity}" />
     </joint>
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_right_joint"/>
+    <actuator name="motor7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   </xacro:macro> 
 
