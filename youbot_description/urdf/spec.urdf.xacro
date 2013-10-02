@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Refactored by Arn-O -->
 <robot name="youbot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
-  
+
   <!-- base -->
   <xacro:property name="base_pose_x" value="0.000" />
   <xacro:property name="base_pose_y" value="0.000" />
@@ -41,7 +41,7 @@
     <parent link="arm_base_link"/>
     <axis xyz="0 0 1" />
     <limit lower="${M_PI * (-169 / 180) }" upper="${M_PI * (169 / 180) }"
-           effort="9.5" velocity="${arm_joint_velocity}" />
+           effort="${9.5 * effort_correct}" velocity="${arm_joint_velocity}" />
   </xacro:macro>
 
   <xacro:macro name="arm_1_inertial" >
@@ -60,7 +60,7 @@
     <parent link="arm_1_link"/>
     <axis xyz="0 0 1" />
     <limit lower="${M_PI * (-65 / 180) }" upper="${M_PI * (90 / 180) }"
-           effort="9.5" velocity="${arm_joint_velocity}" />
+           effort="${9.5 * effort_correct}" velocity="${arm_joint_velocity}" />
   </xacro:macro>
 
   <xacro:macro name="arm_2_inertial" >
@@ -78,7 +78,7 @@
     <parent link="arm_2_link"/>
     <axis xyz="0 0 1" />
     <limit lower="${M_PI * (-151 / 180) }" upper="${M_PI * (146 / 180) }"
-           effort="6.0" velocity="${arm_joint_velocity}" />
+           effort="${6.0 * effort_correct}" velocity="${arm_joint_velocity}" />
   </xacro:macro>
 
   <xacro:macro name="arm_3_inertial" >
@@ -96,7 +96,7 @@
     <parent link="arm_3_link"/>
     <axis xyz="0 0 1" />
     <limit lower="${M_PI * (-102.5 / 180) }" upper="${M_PI * (102.5 / 180) }"
-           effort="10.0" velocity="${arm_joint_velocity}" />
+           effort="${2.0 * effort_correct}" velocity="${arm_joint_velocity}" />
   </xacro:macro>
 
   <xacro:macro name="arm_4_inertial" >
@@ -114,7 +114,7 @@
     <parent link="arm_4_link"/>
     <axis xyz="0 0 -1" />
     <limit lower="${M_PI * (-165 / 180) }" upper="${M_PI * (165 / 180) }"
-           effort="10.0" velocity="${arm_joint_velocity}" />
+           effort="${1.0 * effort_correct}" velocity="${arm_joint_velocity}" />
   </xacro:macro>
 
   <xacro:macro name="arm_5_inertial" >
