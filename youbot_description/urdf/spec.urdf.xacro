@@ -35,114 +35,94 @@
   <xacro:property name="arm_joint_velocity" value="${M_PI * (90 / 180)}" />
 
   <!-- arm_1 -->
-  <xacro:property name="arm_1_link_pose_x" value="0.024" />
-  <xacro:property name="arm_1_link_pose_y" value="0.000" />
-  <xacro:property name="arm_1_link_pose_z" value="0.115" />
+  <xacro:macro name="arm_1_joint" >
+    <origin xyz="0.024 0.000 0.115" 
+            rpy="${M_PI * (180 / 180)} ${M_PI * (0 / 180)} ${M_PI * (0 / 180)}" />
+    <parent link="arm_base_link"/>
+    <axis xyz="0 0 1" />
+    <limit lower="${M_PI * (-169 / 180) }" upper="${M_PI * (169 / 180) }"
+           effort="9.5" velocity="${arm_joint_velocity}" />
+  </xacro:macro>
 
-  <xacro:property name="arm_1_link_orient_y" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_1_link_orient_p" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_1_link_orient_r" value="${M_PI * (180 / 180)}" />
-
-  <xacro:property name="arm_1_axis" value="0 0 1" />
-
-  <xacro:property name="arm_1_limit_min" value="${M_PI * (-169 / 180) }" />
-  <xacro:property name="arm_1_limit_max" value="${M_PI * (169 / 180) }" />
-
-  <xacro:property name="arm_1_link_mass" value="1.390" />
-  <xacro:property name="arm_1_joint_effort" value="9.5" />
-
-  <xacro:macro name="arm_1_inertia" >
-    <origin xyz="0.015 0.004 0.031" rpy="${M_PI * (180 / 180)} ${M_PI * (20 / 180)} 0"/>
-    <inertia ixx="0.0029525" iyy="0.0060091" izz="0.0058821" ixy="0.000" iyz="0.000" ixz="0.000" />
+  <xacro:macro name="arm_1_inertial" >
+    <mass value="1.390" />
+    <origin xyz="0.015 0.004 0.031"
+            rpy="${M_PI * (180 / 180)} ${M_PI * (20 / 180)} 0"/>
+    <inertia ixx="0.0029525" iyy="0.0060091" izz="0.0058821"
+             ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
 
   <!-- arm_2 -->
-  <xacro:property name="arm_2_link_pose_x" value="0.033" />
-  <xacro:property name="arm_2_link_pose_y" value="0.000" />
-  <xacro:property name="arm_2_link_pose_z" value="0.000" />
+  <xacro:macro name="arm_2_joint" >
+    <!-- slightly different from the doc due to different conventions -->
+    <origin xyz="0.033 0.000 0.000" 
+            rpy="${M_PI * (90 / 180)} ${M_PI * (90 / 180)} ${M_PI * (0 / 180)}" />
+    <parent link="arm_1_link"/>
+    <axis xyz="0 0 1" />
+    <limit lower="${M_PI * (-65 / 180) }" upper="${M_PI * (90 / 180) }"
+           effort="9.5" velocity="${arm_joint_velocity}" />
+  </xacro:macro>
 
-  <!-- slightly different from the doc due to different conventions -->
-  <xacro:property name="arm_2_link_orient_y" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_2_link_orient_p" value="${M_PI * (90 / 180)}" />
-  <xacro:property name="arm_2_link_orient_r" value="${M_PI * (90 / 180)}" />
-
-  <xacro:property name="arm_2_axis" value="0 0 1" />
-
-  <xacro:property name="arm_2_limit_min" value="${M_PI * (-65 / 180) }" />
-  <xacro:property name="arm_2_limit_max" value="${M_PI * (90 / 180) }" />
-
-  <xacro:property name="arm_2_link_mass" value="1.318" />
-  <xacro:property name="arm_2_joint_effort" value="9.5" />
-
-  <xacro:macro name="arm_2_inertia" >
-    <origin xyz="0.114 0.015 -0.019" rpy="0 ${M_PI * (90 / 180)} ${M_PI * (-90 / 180)}"/>
-    <inertia ixx="0.0031145" iyy="0.0005843" izz="0.0031631" ixy="0.000" iyz="0.000" ixz="0.000" />
+  <xacro:macro name="arm_2_inertial" >
+    <mass value="1.318" />
+    <origin xyz="0.114 0.015 -0.019"
+            rpy="0 ${M_PI * (90 / 180)} ${M_PI * (-90 / 180)}"/>
+    <inertia ixx="0.0031145" iyy="0.0005843" izz="0.0031631"
+             ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
 
   <!-- arm_3 -->
-  <xacro:property name="arm_3_link_pose_x" value="0.155" />
-  <xacro:property name="arm_3_link_pose_y" value="0.000" />
-  <xacro:property name="arm_3_link_pose_z" value="0.000" />
+  <xacro:macro name="arm_3_joint" >
+    <origin xyz="0.155 0.000 0.000" 
+            rpy="${M_PI * (0 / 180)} ${M_PI * (0 / 180)} ${M_PI * (-90 / 180)}" />
+    <parent link="arm_2_link"/>
+    <axis xyz="0 0 1" />
+    <limit lower="${M_PI * (-151 / 180) }" upper="${M_PI * (146 / 180) }"
+           effort="6.0" velocity="${arm_joint_velocity}" />
+  </xacro:macro>
 
-  <xacro:property name="arm_3_link_orient_y" value="${M_PI * (-90 / 180)}" />
-  <xacro:property name="arm_3_link_orient_p" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_3_link_orient_r" value="${M_PI * (0 / 180)}" />
-
-  <xacro:property name="arm_3_axis" value="0 0 1" />
-
-  <xacro:property name="arm_3_limit_min" value="${M_PI * (-151 / 180) }" />
-  <xacro:property name="arm_3_limit_max" value="${M_PI * (146 / 180) }" />
-
-  <xacro:property name="arm_3_link_mass" value="0.821" />
-  <xacro:property name="arm_3_joint_effort" value="6.0" />
-
-  <xacro:macro name="arm_3_inertia" >
-    <origin xyz="0.000 0.104 0.020" rpy="0 0 ${M_PI * (90 / 180)}"/>
-    <inertia ixx="0.00172767" iyy="0.00041967" izz="0.0018468" ixy="0.000" iyz="0.000" ixz="0.000" />
+  <xacro:macro name="arm_3_inertial" >
+    <mass value="0.821" />
+    <origin xyz="0.000 0.104 0.020"
+            rpy="0 0 ${M_PI * (90 / 180)}"/>
+    <inertia ixx="0.00172767" iyy="0.00041967" izz="0.0018468"
+             ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
 
   <!-- arm_4 -->
-  <xacro:property name="arm_4_link_pose_x" value="0.000" />
-  <xacro:property name="arm_4_link_pose_y" value="0.135" />
-  <xacro:property name="arm_4_link_pose_z" value="0.000" />
+  <xacro:macro name="arm_4_joint" >
+    <origin xyz="0.000 0.135 0.000" 
+            rpy="${M_PI * (0 / 180)} ${M_PI * (0 / 180)} ${M_PI * (0 / 180)}" />
+    <parent link="arm_3_link"/>
+    <axis xyz="0 0 1" />
+    <limit lower="${M_PI * (-102.5 / 180) }" upper="${M_PI * (102.5 / 180) }"
+           effort="10.0" velocity="${arm_joint_velocity}" />
+  </xacro:macro>
 
-  <xacro:property name="arm_4_link_orient_y" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_4_link_orient_p" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_4_link_orient_r" value="${M_PI * (0 / 180)}" />
-
-  <xacro:property name="arm_4_axis" value="0 0 1" />
-
-  <xacro:property name="arm_4_limit_min" value="${M_PI * (-102.5 / 180) }" />
-  <xacro:property name="arm_4_limit_max" value="${M_PI * (102.5 / 180) }" />
-
-  <xacro:property name="arm_4_link_mass" value="0.769" />
-  <xacro:property name="arm_4_joint_effort" value="2.0" />
-
-  <xacro:macro name="arm_4_inertia" >
-    <origin xyz="0.000 0.054 -0.025" rpy="0 ${M_PI * (180 / 180)} ${M_PI * (40 / 180)}"/>
-    <inertia ixx="0.0006764" iyy="0.0010573" izz="0.0006610" ixy="0.000" iyz="0.000" ixz="0.000" />
+  <xacro:macro name="arm_4_inertial" >
+    <mass value="0.769" />
+    <origin xyz="0.000 0.054 -0.025"
+            rpy="${M_PI * (40 / 180)} ${M_PI * (180 / 180)} 0"/>
+    <inertia ixx="0.0006764" iyy="0.0010573" izz="0.0006610"
+             ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
 
   <!-- arm_5 -->
-  <xacro:property name="arm_5_link_pose_x" value="0.000" />
-  <xacro:property name="arm_5_link_pose_y" value="0.114" />
-  <xacro:property name="arm_5_link_pose_z" value="0.000" />
+  <xacro:macro name="arm_5_joint" >
+    <origin xyz="0.000 0.114 0.000" 
+            rpy=" ${M_PI * (-90 / 180)} ${M_PI * (0 / 180)} ${M_PI * (0 / 180)}" />
+    <parent link="arm_4_link"/>
+    <axis xyz="0 0 -1" />
+    <limit lower="${M_PI * (-165 / 180) }" upper="${M_PI * (165 / 180) }"
+           effort="10.0" velocity="${arm_joint_velocity}" />
+  </xacro:macro>
 
-  <xacro:property name="arm_5_link_orient_y" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_5_link_orient_p" value="${M_PI * (0 / 180)}" />
-  <xacro:property name="arm_5_link_orient_r" value="${M_PI * (-90 / 180)}" />
-
-  <xacro:property name="arm_5_axis" value="0 0 -1" />
-
-  <xacro:property name="arm_5_limit_min" value="${M_PI * (-165 / 180) }" />
-  <xacro:property name="arm_5_limit_max" value="${M_PI * (165 / 180) }" />
-
-  <xacro:property name="arm_5_link_mass" value="0.687" />
-  <xacro:property name="arm_5_joint_effort" value="1.0" />
-
-  <xacro:macro name="arm_5_inertia" >
-    <origin xyz="0.000 0.001 -0.016" rpy="0 ${M_PI * (90 / 180)} 0"/>
-    <inertia ixx="0.0001934" iyy="0.0001602" izz="0.0000689" ixy="0.000" iyz="0.000" ixz="0.000" />
+  <xacro:macro name="arm_5_inertial" >
+    <mass value="0.687" />
+    <origin xyz="0.000 0.001 -0.016"
+            rpy="0 ${M_PI * (90 / 180)} 0"/>
+    <inertia ixx="0.0001934" iyy="0.0001602" izz="0.0000689"
+             ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
 
   <!-- gripper_base -->
@@ -157,8 +137,10 @@
   <xacro:property name="gripper_base_link_mass" value="0.199" />
 
   <xacro:macro name="gripper_base_inertia" >
-    <origin xyz="0.000 0.000 0.029" rpy="0 ${M_PI * (180 / 180)} ${M_PI * (90 / 180)}"/>
-    <inertia ixx="0.0002324" iyy="0.0003629" izz="0.0002067" ixy="0.000" iyz="0.000" ixz="0.000" />
+    <origin xyz="0.000 0.000 0.029"
+            rpy="0 ${M_PI * (180 / 180)} ${M_PI * (90 / 180)}"/>
+    <inertia ixx="0.0002324" iyy="0.0003629" izz="0.0002067"
+             ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
 
   <!-- fingers paramaters -->
