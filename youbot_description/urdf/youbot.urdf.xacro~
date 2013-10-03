@@ -3,6 +3,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="youbot">
 
   <xacro:property name="M_PI" value="3.1415926535897931"/>
+  <!-- used for having a more realistic behavior -->   
+  <xacro:property name="effort_correct" value="10.0" />
 
   <!-- Import the spec provided by youBot store -->
   <xacro:include filename="$(find youbot_description)/urdf/spec.urdf.xacro"/>
@@ -260,7 +262,7 @@
     <!-- gripper_base joint -->
     <joint name="gripper_base_joint" type="fixed">
       <origin xyz="${gripper_base_link_pose_x} ${gripper_base_link_pose_y} ${gripper_base_link_pose_z}"   
-              rpy="${gripper_base_link_orient_r} ${gripper_base_link_orient_p}                                             ${gripper_base_link_orient_y}"/>
+              rpy="${gripper_base_link_orient_r} ${gripper_base_link_orient_p} ${gripper_base_link_orient_y}"/>
       <parent link="arm_5_link"/>
       <child link="gripper_base_link"/>
     </joint>
@@ -308,10 +310,9 @@
         </geometry>
       </visual>
     </link>
-
     <!-- finger_right joint -->
     <joint name="finger_right_joint" type="prismatic">
-      <origin xyz="${finger_right_link_pose_x} ${finger_right_link_pose_y}                                                        ${finger_right_link_pose_z}"/>
+      <origin xyz="${finger_right_link_pose_x} ${finger_right_link_pose_y} ${finger_right_link_pose_z}"/>
       <parent link="gripper_base_link"/>
       <child link="finger_right_link"/>
       <axis xyz="${finger_right_axis}"/>
