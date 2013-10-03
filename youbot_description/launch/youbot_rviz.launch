@@ -1,3 +1,5 @@
+<!-- Copyright 2013 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
+
 <launch>
   <!-- setting param to be used later by the rviz config file -->
   <param name="robot_description"

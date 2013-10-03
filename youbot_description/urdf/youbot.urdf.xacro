@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<!-- Refactored by Arn-O -->
+
+<!-- Copyright 2013 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
+
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="youbot">
 
   <xacro:property name="M_PI" value="3.1415926535897931"/>
@@ -286,7 +288,8 @@
       <parent link="gripper_base_link"/>
       <child link="finger_left_link"/>
       <axis xyz="${finger_left_axis}"/>
-      <limit lower="${finger_left_limit_min}" upper="${finger_left_limit_max}" effort="${finger_joint_effort}" velocity="${finger_joint_velocity}"/>
+      <limit lower="${finger_left_limit_min}" upper="${finger_left_limit_max}"
+             effort="${finger_joint_effort}" velocity="${finger_joint_velocity}"/>
     </joint>
     <transmission name="tran6">
       <type>transmission_interface/SimpleTransmission</type>

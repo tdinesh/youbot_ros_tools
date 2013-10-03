@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<!-- Refactored by Arn-O -->
+
+<!-- Copyright 2013 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
+
 <launch>
 
   <node name="controller_spawner" pkg="controller_manager"
