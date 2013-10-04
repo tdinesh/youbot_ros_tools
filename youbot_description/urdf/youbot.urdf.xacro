@@ -6,7 +6,7 @@
 
   <xacro:property name="M_PI" value="3.1415926535897931"/>
   <!-- used for having a more realistic behavior -->   
-  <xacro:property name="effort_correct" value="100.0" />
+  <xacro:property name="effort_correct" value="5.0" />
 
   <!-- Import the spec provided by youBot store -->
   <xacro:include filename="$(find youbot_description)/urdf/spec.urdf.xacro"/>
@@ -338,5 +338,5 @@
   <xacro:wheels position="br" x="-1" y="1"/>
   <xacro:arm_base/>
   <xacro:arm/>
-  <xacro:gripper/>
+  <!-- xacro:gripper/ -->
 </robot>
