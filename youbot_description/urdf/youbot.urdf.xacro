@@ -340,5 +340,5 @@
   <xacro:wheels position="br" x="-1" y="1"/>
   <xacro:arm_base/>
   <xacro:arm/>
-  <!-- xacro:gripper/ -->
+  <xacro:gripper/>
 </robot>
