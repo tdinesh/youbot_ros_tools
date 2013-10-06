@@ -91,7 +91,6 @@
     <mass value="0.821" />
     <inertia ixx="0.001" iyy="0.001" izz="0.001"
              ixy="0.000" iyz="0.000" ixz="0.000" />
-    <!-- origin xyz="0.000 0.104 0.020"
   <xacro:macro name="arm_4_joint" >
     <origin xyz="0.000 0.135 0.000" 
             rpy="${M_PI * (0 / 180)} ${M_PI * (0 / 180)} ${M_PI * (0 / 180)}" />
