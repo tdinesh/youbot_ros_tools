@@ -14,7 +14,6 @@
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot.gazebo"/>
 
-  <!-- TODO: change inertia of the base links and the wheels -->
   <xacro:macro name="base">
     <!-- #### base #### -->
     <!-- footprint link -->
@@ -22,7 +21,7 @@
       <inertial>
         <mass value="0.001"/>
 	<inertia ixx="0.000001" iyy="0.000001" izz="0.000001"
-	         ixy="0.000" ixz="0.000" iyz="0.000" />
+                 ixy="0.000000" ixz="0.000001" iyz="0.000001" />
       </inertial>
       <visual>
         <geometry>
@@ -56,8 +55,8 @@
     <link name="plate_link">
       <inertial>
         <mass value="${plate_mass}"/>
-	<inertia ixx="0.002" iyy="0.002" izz="0.002"
-	         ixy="0" ixz="0" iyz="0"/>
+	<inertia ixx="0.002000" iyy="0.002000" izz="0.002000"
+	         ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -202,7 +201,7 @@
 
     <!-- ### arm_4 ### -->
     <!-- arm_4 link -->
-    <link name="arm_4_link">
+    <!-- <link name="arm_4_link">
       <inertial>
         <xacro:arm_4_inertial/>
       </inertial>
@@ -211,9 +210,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_4.dae"/>
         </geometry>
       </visual>
-    </link>
+    </link> -->
     <!-- arm_4 joint -->
-    <joint name="arm_4_joint" type="revolute">
+    <!-- <joint name="arm_4_joint" type="revolute">
       <xacro:arm_4_joint/>
       <child link="arm_4_link"/>
     </joint>
@@ -224,11 +223,11 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
 
     <!-- ### arm_5 ### -->
     <!-- arm_5 link -->
-    <link name="arm_5_link">
+    <!-- <link name="arm_5_link">
       <inertial>
         <xacro:arm_5_inertial/>
       </inertial>
@@ -237,9 +236,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_5.dae"/>
         </geometry>
       </visual>
-    </link>
+    </link> -->
     <!-- arm_5 joint -->
-    <joint name="arm_5_joint" type="revolute">
+    <!-- <joint name="arm_5_joint" type="revolute">
       <xacro:arm_5_joint/>
       <child link="arm_5_link"/>
     </joint>
@@ -250,7 +249,7 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
   </xacro:macro>
 
   <xacro:macro name="gripper">

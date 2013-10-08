@@ -50,8 +50,8 @@
 
   <xacro:macro name="arm_1_inertial" >
     <mass value="1.390" />
-    <origin xyz="0.015 0.004 0.031"
-            rpy="${M_PI * (180 / 180)} ${M_PI * (20 / 180)} 0"/>
+    <origin xyz="0.015 0.004 0.031" 
+	    rpy="0 0 ${M_PI * (180 / 180)}" />
     <inertia ixx="0.0029525" iyy="0.0060091" izz="0.0058821"
              ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
@@ -70,7 +70,7 @@
   <xacro:macro name="arm_2_inertial" >
     <mass value="1.318" />
     <origin xyz="0.114 0.015 -0.019"
-            rpy="0 ${M_PI * (90 / 180)} ${M_PI * (-90 / 180)}"/>
+	    rpy= "${M_PI * (-90 / 180)} ${M_PI * (90 / 180)} 0"/>
     <inertia ixx="0.0031145" iyy="0.0005843" izz="0.0031631"
              ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
@@ -87,8 +87,8 @@
 
   <xacro:macro name="arm_3_inertial" >
     <mass value="0.821" />
-    <origin xyz="0.000 0.104 0.020"
-            rpy="0 0 ${M_PI * (90 / 180)}"/>
+    <!-- <origin xyz="0.000 0.104 0.020"
+	    rpy="0 0 ${M_PI * (90 / 180)}"/> -->
     <inertia ixx="0.00172767" iyy="0.00041967" izz="0.0018468"
              ixy="0.000" iyz="0.000" ixz="0.000" />
   </xacro:macro>
@@ -178,3 +178,4 @@
   <xacro:property name="finger_right_link_mass" value="0.010" />
 
 </robot>
+
