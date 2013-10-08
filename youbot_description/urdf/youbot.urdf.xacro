@@ -2,8 +2,6 @@
 
 <!-- Copyright 2013 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
 
-<!-- This file should contain parameter provided by the youBot store, see http://www.youbot-store.com/youbot-developers/software/simulation/kuka-youbot-kinematics-dynamics-and-3d-model?c=35. Default parameters should be stored in the robot description directly. -->
-
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="youbot">
 
   <xacro:property name="M_PI" value="3.1415926535897931"/>
