@@ -21,7 +21,8 @@
     <link name="base_footprint">
       <inertial>
         <mass value="0.001"/>
-        <inertia ixx="0.000001" ixy="0.000" ixz="0.000" iyy="0.000001" iyz="0.000" izz="0.000001"/>
+	<inertia ixx="0.000001" iyy="0.000001" izz="0.000001"
+	         ixy="0.000" ixz="0.000" iyz="0.000" />
       </inertial>
       <visual>
         <geometry>
@@ -32,8 +33,10 @@
     <!-- base link -->
     <link name="base_link">
       <inertial>
-        <mass value="${base_mass}"/>
-        <inertia ixx="0.01" ixy="0.000" ixz="0.000" iyy="0.01" iyz="0.000" izz="0.01"/>
+	<mass value="${base_mass}"/>
+	<!-- cuboid used as an approximation -->
+	<inertia ixx="0.273333" iyy="0.593333" izz="0.801333"
+	         ixy="0.000" ixz="0.000" iyz="0.000"/>
       </inertial>
       <visual>
         <geometry>
@@ -53,7 +56,8 @@
     <link name="plate_link">
       <inertial>
         <mass value="${plate_mass}"/>
-        <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.002" iyz="0" izz="0.002"/>
+	<inertia ixx="0.002" iyy="0.002" izz="0.002"
+	         ixy="0" ixz="0" iyz="0"/>
       </inertial>
       <visual>
         <geometry>
@@ -74,7 +78,8 @@
     <link name="wheel_${position}_link">
       <inertial>
         <mass value="${wheel_mass}"/>
-        <inertia ixx="0.0014" ixy="0.000" ixz="0.000" iyy="0.0014" iyz="0.000" izz="0.0014"/>
+	<inertia ixx="0.001400" iyy="0.001400" izz="0.001400"
+	         ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -108,7 +113,8 @@
       </visual>
     </link>
     <joint name="arm_base_joint" type="fixed">
-      <origin xyz="${arm_base_pose_x} ${arm_base_pose_y} ${arm_base_pose_z}" rpy="0 0 0"/>
+      <origin xyz="${arm_base_pose_x} ${arm_base_pose_y} ${arm_base_pose_z}"
+              rpy="0 0 0"/>
       <parent link="base_link"/>
       <child link="arm_base_link"/>
     </joint>
@@ -338,5 +344,5 @@
   <xacro:wheels position="br" x="-1" y="1"/>
   <xacro:arm_base/>
   <xacro:arm/>
-  <xacro:gripper/>
+  <!-- xacro:gripper/ -->
 </robot>
