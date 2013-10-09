@@ -72,8 +72,8 @@
 
   <xacro:macro name="arm_2_inertial" >
     <mass value="1.318" />
-    <origin xyz="0.016 0.000 0.000"/>
-    <inertia ixx="0.000394" iyy="0.000549" izz="0.000549"
+    <origin xyz="0.077 0.000 0.000"/>
+    <inertia ixx="0.002913" iyy="0.000549" izz="0.000549"
 	     ixy="0.000" iyz="0.000" ixz="0.000" />
     <!-- <origin xyz="0.114 0.015 -0.019"
 	    rpy= "${M_PI * (-90 / 180)} ${M_PI * (90 / 180)} 0"/>
@@ -93,10 +93,13 @@
 
   <xacro:macro name="arm_3_inertial" >
     <mass value="0.821" />
-    <!-- <origin xyz="0.000 0.104 0.020"
-	    rpy="0 0 ${M_PI * (90 / 180)}"/> -->
-    <inertia ixx="0.00172767" iyy="0.00041967" izz="0.0018468"
+    <origin xyz="0.000 0.067 0.000"/>
+    <inertia ixx="0.000342" iyy="0.001418" izz="0.000342"
              ixy="0.000" iyz="0.000" ixz="0.000" />
+     <!-- <origin xyz="0.000 0.104 0.020"
+	    rpy="0 0 ${M_PI * (90 / 180)}"/>
+    <inertia ixx="0.00172767" iyy="0.00041967" izz="0.0018468"
+	     ixy="0.000" iyz="0.000" ixz="0.000" /> -->
   </xacro:macro>
 
   <!-- arm_4 -->
