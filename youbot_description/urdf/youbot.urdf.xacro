@@ -201,7 +201,7 @@
 
     <!-- ### arm_4 ### -->
     <!-- arm_4 link -->
-    <!-- <link name="arm_4_link">
+    <link name="arm_4_link">
       <inertial>
         <xacro:arm_4_inertial/>
       </inertial>
@@ -210,9 +210,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_4.dae"/>
         </geometry>
       </visual>
-    </link> -->
+    </link>
     <!-- arm_4 joint -->
-    <!-- <joint name="arm_4_joint" type="revolute">
+    <joint name="arm_4_joint" type="revolute">
       <xacro:arm_4_joint/>
       <child link="arm_4_link"/>
     </joint>
@@ -223,11 +223,11 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission> -->
+    </transmission>
 
     <!-- ### arm_5 ### -->
     <!-- arm_5 link -->
-    <!-- <link name="arm_5_link">
+    <link name="arm_5_link">
       <inertial>
         <xacro:arm_5_inertial/>
       </inertial>
@@ -236,9 +236,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_5.dae"/>
         </geometry>
       </visual>
-    </link> -->
+    </link>
     <!-- arm_5 joint -->
-    <!-- <joint name="arm_5_joint" type="revolute">
+    <joint name="arm_5_joint" type="revolute">
       <xacro:arm_5_joint/>
       <child link="arm_5_link"/>
     </joint>
@@ -249,7 +249,7 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission> -->
+    </transmission>
   </xacro:macro>
 
   <xacro:macro name="gripper">
@@ -279,7 +279,8 @@
     <link name="finger_left_link">
       <inertial>
         <mass value="${finger_left_link_mass}"/>
-        <inertia ixx="0.00001" ixy="0.000" ixz="0.000" iyy="0.00001" iyz="0.00001" izz="0.00001"/>
+	<inertia ixx="0.000100" iyy="0.000100" izz="0.000100"
+		 ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -310,7 +311,8 @@
     <link name="finger_right_link">
       <inertial>
         <mass value="${finger_right_link_mass}"/>
-        <inertia ixx="0.00001" ixy="0.000" ixz="0.000" iyy="0.00001" iyz="0.00001" izz="0.00001"/>
+	<inertia ixx="0.000100" iyy="0.000100" izz="0.000100"
+	         ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -343,5 +345,5 @@
   <xacro:wheels position="br" x="-1" y="1"/>
   <xacro:arm_base/>
   <xacro:arm/>
-  <!-- xacro:gripper/ -->
+  <xacro:gripper/>
 </robot>
