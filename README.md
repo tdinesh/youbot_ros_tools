@@ -45,7 +45,7 @@ roslaunch youbot_control youbot_control.launch
 ```
 
 
-### Dump the URDF file
+### Debug
 
 It may be useful sometimes to check the generated URDF file. Use the following command to dump this file:
 
@@ -57,6 +57,16 @@ You can them check the integrety of this file using the urdfdom package:
 
 ```
 rosrun urdfdom check_urdf ~/Documents/youbot.urdf
+```
+
+Edit the robot description:
+```
+rosed youbot_description youbot.urdf.xacro
+```
+
+Edit the spec file:
+```
+rosed youbot_description spec.urdf.xacro
 ```
 
 [1]: http://www.youbot-store.com/youbot-developers/software/simulation/kuka-youbot-kinematics-dynamics-and-3d-model

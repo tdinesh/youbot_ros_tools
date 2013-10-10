@@ -20,8 +20,8 @@
     <link name="base_footprint">
       <inertial>
         <mass value="0.001"/>
-	<inertia ixx="0.000001" iyy="0.000001" izz="0.000001"
-                 ixy="0.000000" ixz="0.000001" iyz="0.000001" />
+	<inertia ixx="0.000100" iyy="0.000100" izz="0.000100"
+                 ixy="0.000000" ixz="0.000001" iyz="0.000000" />
       </inertial>
       <visual>
         <geometry>
@@ -55,7 +55,7 @@
     <link name="plate_link">
       <inertial>
         <mass value="${plate_mass}"/>
-	<inertia ixx="0.002000" iyy="0.002000" izz="0.002000"
+	<inertia ixx="0.057688" iyy="0.029343" izz="0.057688"
 	         ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
