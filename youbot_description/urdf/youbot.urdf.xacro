@@ -20,7 +20,7 @@
     <link name="base_footprint">
       <inertial>
         <mass value="0.001"/>
-	<inertia ixx="0.000100" iyy="0.000100" izz="0.000100"
+	<inertia ixx="0.000001" iyy="0.000001" izz="0.000001"
                  ixy="0.000000" ixz="0.000001" iyz="0.000000" />
       </inertial>
       <visual>
@@ -35,7 +35,7 @@
 	<mass value="${base_mass}"/>
 	<!-- cuboid used as an approximation -->
 	<inertia ixx="0.273333" iyy="0.593333" izz="0.801333"
-	         ixy="0.000" ixz="0.000" iyz="0.000"/>
+	 ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -56,7 +56,7 @@
       <inertial>
         <mass value="${plate_mass}"/>
 	<inertia ixx="0.057688" iyy="0.029343" izz="0.057688"
-	         ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
+		 ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -103,7 +103,8 @@
     <link name="arm_base_link">
       <inertial>
         <mass value="${arm_base_mass}"/>
-        <inertia ixx="0.010" ixy="0.000" ixz="0.000" iyy="0.010" iyz="0.000" izz="0.010"/>
+	<inertia ixx="0.010000" iyy="0.010000" izz="0.010000"
+	         ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
         <geometry>
@@ -149,7 +150,7 @@
 
     <!-- ### arm_2 ### -->
     <!-- arm_2 link -->
-    <link name="arm_2_link">
+    <!-- <link name="arm_2_link">
       <inertial>
         <xacro:arm_2_inertial/>
       </inertial>
@@ -158,9 +159,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_2.dae"/>
         </geometry>
       </visual>
-    </link>
+    </link> -->
     <!-- arm_2 joint -->
-    <joint name="arm_2_joint" type="revolute">
+    <!-- <joint name="arm_2_joint" type="revolute">
       <xacro:arm_2_joint/>
       <child link="arm_2_link"/>
     </joint>
@@ -171,11 +172,11 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
 
     <!-- ### arm_3 ### -->
     <!-- arm_3 link -->
-    <link name="arm_3_link">
+    <!-- <link name="arm_3_link">
       <inertial>
         <xacro:arm_3_inertial/>
       </inertial>
@@ -184,9 +185,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_3.dae"/>
         </geometry>
       </visual>
-    </link>
+    </link> -->
     <!-- arm_3 joint -->
-    <joint name="arm_3_joint" type="revolute">
+    <!-- <joint name="arm_3_joint" type="revolute">
       <xacro:arm_3_joint/>
       <child link="arm_3_link"/>
     </joint>
@@ -197,11 +198,11 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
 
     <!-- ### arm_4 ### -->
     <!-- arm_4 link -->
-    <link name="arm_4_link">
+    <!-- <link name="arm_4_link">
       <inertial>
         <xacro:arm_4_inertial/>
       </inertial>
@@ -210,9 +211,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_4.dae"/>
         </geometry>
       </visual>
-    </link>
+    </link> -->
     <!-- arm_4 joint -->
-    <joint name="arm_4_joint" type="revolute">
+    <!-- <joint name="arm_4_joint" type="revolute">
       <xacro:arm_4_joint/>
       <child link="arm_4_link"/>
     </joint>
@@ -223,11 +224,11 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
 
     <!-- ### arm_5 ### -->
     <!-- arm_5 link -->
-    <link name="arm_5_link">
+    <!-- <link name="arm_5_link">
       <inertial>
         <xacro:arm_5_inertial/>
       </inertial>
@@ -236,9 +237,9 @@
           <mesh filename="package://youbot_description/meshes/arm_joint_5.dae"/>
         </geometry>
       </visual>
-    </link>
+    </link> -->
     <!-- arm_5 joint -->
-    <joint name="arm_5_joint" type="revolute">
+    <!-- <joint name="arm_5_joint" type="revolute">
       <xacro:arm_5_joint/>
       <child link="arm_5_link"/>
     </joint>
@@ -249,7 +250,7 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-    </transmission>
+    </transmission> -->
   </xacro:macro>
 
   <xacro:macro name="gripper">
@@ -345,5 +346,5 @@
   <xacro:wheels position="br" x="-1" y="1"/>
   <xacro:arm_base/>
   <xacro:arm/>
-  <xacro:gripper/>
+  <!-- <xacro:gripper/> -->
 </robot>
