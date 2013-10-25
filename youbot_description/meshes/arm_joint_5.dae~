@@ -22,8 +22,7 @@
               <color>0.43854 0.43854 0.43854 1</color>
             </ambient>
             <diffuse>
-              <!-- color>0 0 0 1</color -->
-              <color>0.43854 0.43854 0.43854 1</color>
+              <color>0 0 0 1</color>
             </diffuse>
             <specular>
               <color>0.0625 0.0625 0.0625 1</color>
