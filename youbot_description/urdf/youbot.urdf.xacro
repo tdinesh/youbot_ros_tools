@@ -284,8 +284,9 @@
 		 ixy="0.000000" ixz="0.000000" iyz="0.000000"/>
       </inertial>
       <visual>
-        <geometry>
-          <mesh filename="package://youbot_description/meshes/gripper_left_finger.dae"/>
+	<origin rpy="0 0 ${M_PI}" />
+	<geometry>
+          <mesh filename="package://youbot_description/meshes/gripper_right_finger.dae"/>
         </geometry>
       </visual>
     </link>

@@ -19,13 +19,16 @@
               <color>0 0 0 1</color>
             </emission>
             <ambient>
-              <color>0 0 0 1</color>
+              <!-- color>0 0 0 1</color -->
+              <color>0.43854 0.43854 0.43854 1</color>
             </ambient>
             <diffuse>
-              <color>0 0 0 1</color>
+              <!-- color>0 0 0 1</color -->
+              <color>0.43854 0.43854 0.43854 1</color>
             </diffuse>
             <specular>
-              <color>0.25 0.25 0.25 1</color>
+              <!-- color>0.25 0.25 0.25 1</color -->
+              <color>0.43854 0.43854 0.43854 1</color>
             </specular>
             <shininess>
               <float>10</float>
