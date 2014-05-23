@@ -18,16 +18,16 @@ So basically this repo a massive refactor of the previous youBot repos.
 
 ## Install
 
-You will need '''catkin''' to build the package. Installation doc for '''catkin''' can be found [here][catkin].
+You will need ``catkin`` to build the package. Installation doc for ``catkin`` can be found [here][catkin].
 
-Just '''git clone''' and build:
+Just ``git clone`` and build:
 
-'''
+``
 $ cd ~/catkin_ws/src
 $ git clone git@github.com:Arn-O/youbot_ros_tools.git
 $ cd ~/catkin_ws
 $ catkin_make
-'''
+``
 
 ## Quick start
 
