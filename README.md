@@ -22,12 +22,12 @@ You will need ``catkin`` to build the package. Installation doc for ``catkin`` c
 
 Just ``git clone`` and build:
 
-``
+```
 $ cd ~/catkin_ws/src
 $ git clone git@github.com:Arn-O/youbot_ros_tools.git
 $ cd ~/catkin_ws
 $ catkin_make
-``
+```
 
 ## Quick start
 
