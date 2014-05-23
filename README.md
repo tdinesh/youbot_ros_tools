@@ -20,6 +20,15 @@ So basically this repo a massive refactor of the previous youBot repos.
 
 You will need ''catkin'' to build the package. Installation doc for ''catkin'' can be found [here][catkin].
 
+Just ''git clone'' and build:
+
+'''
+$ cd ~/catkin_ws/src
+$ git clone git@github.com:Arn-O/youbot_ros_tools.git
+$ cd ~/catkin_ws
+$ catkin_make
+'''
+
 ## Quick start
 
 This repo is compatible with ROS Hydro and Gazebo 1.9.
