@@ -18,6 +18,7 @@ So basically this repo a massive refactor of the previous youBot repos.
 
 ## Install
 
+You will need ''catkin'' to build the package. Installation doc for ''catkin'' can be found [here][catkin].
 
 ## Quick start
 
@@ -78,3 +79,4 @@ rosed youbot_description spec.urdf.xacro
 
 [1]: http://www.youbot-store.com/youbot-developers/software/simulation/kuka-youbot-kinematics-dynamics-and-3d-model
 [2]: https://github.com/Boanerghes/youbot_ros_tools
+[catkin]: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
