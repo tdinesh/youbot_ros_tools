@@ -12,6 +12,13 @@ Use the hydro-devel branch of [Boanerghes][2] for more stable and tested code.
 
 So basically this repo a massive refactor of the previous youBot repos.
 
+## Updates
+
++ _May 23 2014_, add the updates and install sections
+
+## Install
+
+
 ## Quick start
 
 This repo is compatible with ROS Hydro and Gazebo 1.9.
