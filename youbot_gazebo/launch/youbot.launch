@@ -1,4 +1,4 @@
-<!-- Copyright 2013 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
+<!-- Copyright 2014 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
 
 <launch>
 
@@ -16,11 +16,11 @@
   </include>
 
   <!-- Convert an xacro and put on parameter server -->
-  <!-- param name="robot_description"
-    command="$(find xacro)/xacro.py $(find youbot_description)/urdf/youbot.urdf.xacro" / -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro.py $(find youbot_description)/urdf/youbot.urdf.xacro" />
 
   <!-- Spawn a robot into Gazebo -->
-  <!--node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-urdf -param robot_description -model youbot" /-->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -param robot_description -model youbot" />
 
 </launch>

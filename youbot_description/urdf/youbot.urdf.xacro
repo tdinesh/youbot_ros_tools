@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright 2013 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
+<!-- Copyright 2014 Arn-O. See the LICENSE file at the top-level directory of this distribution and at https://github.com/Arn-O/youbot_ros_tools/blob/master/LICENSE. -->
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="youbot">
 

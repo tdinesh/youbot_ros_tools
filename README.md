@@ -77,13 +77,27 @@ rosrun urdfdom check_urdf ~/Documents/youbot.urdf
 ```
 
 Edit the robot description:
+
 ```
 rosed youbot_description youbot.urdf.xacro
 ```
 
 Edit the spec file:
+
 ```
 rosed youbot_description spec.urdf.xacro
+```
+
+Edit the gazebo launch file:
+
+```
+roslaunch youbot_gazebo youbot.launch
+```
+
+Edit the robot gazebo parameters file:
+
+```
+rosed youbot_description youbot.gazebo
 ```
 
 [1]: http://www.youbot-store.com/youbot-developers/software/simulation/kuka-youbot-kinematics-dynamics-and-3d-model
